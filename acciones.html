@@ -93,28 +93,34 @@
           </div>
         </div>
       </div>
-
-      <div class="col-md-6 mb-3">
-        <div class="card">
-          <div class="card-header">Grafico de algo</div>
-          <div class="card-body">
-            <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
-            <canvas id="grafica"></canvas>
-            <script>
-              new Chart(document.getElementById("grafica"), {
-                type: "doughnut",
-                data: {
-                  labels: ["Depósitos", "Retiros", "Servicios"],
-                  datasets: [{ data: [800, 300, 105] }]
-                }
-              });
-            </script>
-          </div>
-        </div>
-      </div>
-
     </div>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.getElementById("form-deposito").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const monto = document.getElementById("monto-deposito").value;
+      Swal.fire("Depósito realizado", "Se depositaron $" + monto, "success");
+      e.target.reset();
+    });
+
+    document.getElementById("form-retiro").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const monto = document.getElementById("monto-retiro").value;
+      Swal.fire("Transacción realizada", "Retiraste $" + monto, "success");
+      e.target.reset();
+    });
+
+    document.getElementById("form-servicios").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const lista = document.getElementById("servicio");
+      const servicio = lista.options[lista.selectedIndex].text;
+      const monto = document.getElementById("monto-servicio").value;
+      Swal.fire("Pago realizado", "Pagaste $" + monto + " de " + servicio, "success");
+      e.target.reset();
+    });
+  </script>
 
   <script src="js/app.js"></script>
 </body>

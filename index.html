@@ -26,19 +26,6 @@
             <small class="form-text text-muted">Solo números, 4 dígitos.</small>
           </div>
           <button type="submit" id="btn-ingresar" class="btn btn-danger btn-block">Ingresar</button>
-          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-          <script>
-            document.getElementById("btn-ingresar").addEventListener("click", (e) => {
-              e.preventDefault();
-              Swal.fire("ALERTA", "e e aqui no admitmo pobre, saquese", "success").then((result) =>
-              {
-                if (!result.isConfirmed)
-                  return;
-
-                window.location.href = "acciones.html";
-              });
-            });
-          </script>
         </form>
       </div>
     </div>

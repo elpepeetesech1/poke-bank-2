@@ -81,6 +81,12 @@ h1,
   border-color: #1b1f3b;
 }
 
+.contenedor-grafico {
+  position: relative;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
 .progress {
   height: 28px;
   background-color: #d5d9e8;

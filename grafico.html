@@ -24,20 +24,19 @@
     <h1 class="h3">Gráfico de transacciones</h1>
 
     <div id="grafico">
-      <p class="mb-1">Depósitos: $800.00</p>
-      <div class="progress mb-3">
-        <div class="progress-bar bg-success" style="width: 66%;">66%</div>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+      <div class="contenedor-grafico">
+        <canvas id="grafica"></canvas>
       </div>
-
-      <p class="mb-1">Retiros: $300.00</p>
-      <div class="progress mb-3">
-        <div class="progress-bar bg-danger" style="width: 25%;">25%</div>
-      </div>
-
-      <p class="mb-1">Pago de servicios: $105.00</p>
-      <div class="progress mb-3">
-        <div class="progress-bar bg-warning" style="width: 9%;">9%</div>
-      </div>
+      <script>
+        new Chart(document.getElementById("grafica"), {
+          type: "doughnut",
+          data: {
+            labels: ["Depósitos", "Retiros", "Servicios"],
+            datasets: [{ data: [800, 300, 105] }]
+          }
+        });
+      </script>
     </div>
   </main>
 
