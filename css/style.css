@@ -1,190 +1,91 @@
-:root {
-  --rojo: #e3350d;
-  --rojo-oscuro: #b3250a;
-  --amarillo: #ffcb05;
-  --azul: #3b4cca;
-  --tinta: #222a35;
-  --fondo: #f1f4f9;
+*:not([class*="swal2"]) {
+  border-radius: 0 !important;
 }
 
 body {
-  background: var(--fondo);
-  color: var(--tinta);
-  min-height: 100vh;
+  background-color: #eceef5;
+  color: #1b1f3b;
 }
 
-.pokebola {
-  position: relative;
-  display: inline-block;
-  width: 56px;
-  height: 56px;
-  border: 4px solid var(--tinta);
-  border-radius: 50%;
-  background: linear-gradient(to bottom, var(--rojo) 0 46%, var(--tinta) 46% 54%, #fff 54% 100%);
-}
-
-.pokebola::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 18px;
-  height: 18px;
-  transform: translate(-50%, -50%);
-  border: 4px solid var(--tinta);
-  border-radius: 50%;
-  background: #fff;
-}
-
-.pokebola-grande {
-  width: 84px;
-  height: 84px;
-  border-width: 5px;
-}
-
-.pokebola-grande::after {
-  width: 26px;
-  height: 26px;
-  border-width: 5px;
-}
-
-.marca {
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  color: var(--tinta);
-}
-
-.marca span {
-  color: var(--rojo);
+h1,
+.card-header,
+.navbar-brand {
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Login */
 .pantalla-login {
-  min-height: 100vh;
-  background: linear-gradient(to bottom, var(--rojo) 0 42%, var(--tinta) 42% 45%, var(--fondo) 45% 100%);
+  background: linear-gradient(135deg, #1b1f3b 55%, #ffcb05 55%, #ffcb05 58%, #e63946 58%);
 }
 
 .tarjeta-login {
   max-width: 400px;
-  border: 0;
-  border-radius: 1.25rem;
-  box-shadow: 0 18px 40px rgba(34, 42, 53, 0.25);
+  clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px));
 }
 
 .campo-pin {
-  max-width: 220px;
+  max-width: 200px;
   margin: 0 auto;
-  font-size: 2rem;
-  letter-spacing: 1rem;
   text-align: center;
-  border: 2px solid var(--tinta);
-  border-radius: 0.75rem;
+  letter-spacing: 10px;
 }
 
-.campo-pin:focus {
-  border-color: var(--azul);
-  box-shadow: 0 0 0 0.2rem rgba(59, 76, 202, 0.25);
-}
-
-/* Botones y cabecera */
-.btn-pokemon {
-  background: var(--rojo);
-  border-color: var(--rojo-oscuro);
-  color: #fff;
-  font-weight: 700;
-}
-
-.btn-pokemon:hover,
-.btn-pokemon:focus {
-  background: var(--rojo-oscuro);
-  color: #fff;
-}
-
-.barra-superior {
-  background: #fff;
-  border-bottom: 4px solid var(--rojo);
-  box-shadow: 0 2px 10px rgba(34, 42, 53, 0.08);
-}
-
-.barra-superior .nav-link {
-  color: var(--tinta);
-  font-weight: 600;
-  border-radius: 2rem;
-}
-
-.barra-superior .nav-link:hover {
-  background: var(--fondo);
-}
-
-.barra-superior .nav-link.activo {
-  background: var(--amarillo);
-}
-
-.barra-superior .nav-link.salir {
-  color: var(--rojo-oscuro);
-}
-
-/* Acciones */
-.resumen-cuenta {
-  background: linear-gradient(120deg, var(--azul), #2a3699);
-  color: #fff;
+/* Cortes en diagonal */
+.card,
+.alert {
   border: 0;
-  border-radius: 1rem;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
 }
 
-.resumen-cuenta .saldo {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--amarillo);
-}
-
-.tarjeta-accion {
+.card-header {
+  background-color: #1b1f3b;
+  color: #ffcb05;
   border: 0;
-  border-top: 5px solid var(--rojo);
-  border-radius: 1rem;
-  box-shadow: 0 6px 18px rgba(34, 42, 53, 0.08);
+  font-weight: bold;
 }
 
-.tarjeta-accion.deposito { border-top-color: #1f9d55; }
-.tarjeta-accion.retiro { border-top-color: var(--rojo); }
-.tarjeta-accion.saldo { border-top-color: var(--azul); }
-.tarjeta-accion.servicios { border-top-color: var(--amarillo); }
-
-.tarjeta-accion h2 {
-  font-size: 1.25rem;
-  font-weight: 800;
+.alert {
+  background-color: #ffcb05;
+  color: #1b1f3b;
 }
 
-/* Historial */
-.tabla-historial thead th {
-  background: var(--tinta);
-  color: #fff;
+.btn {
   border: 0;
+  padding-left: 28px;
+  padding-right: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
 }
 
-.insignia-deposito { background: #1f9d55; color: #fff; }
-.insignia-retiro { background: var(--rojo); color: #fff; }
-.insignia-servicio { background: var(--amarillo); color: var(--tinta); }
-
-.monto-entrada { color: #1f9d55; font-weight: 700; }
-.monto-salida { color: var(--rojo-oscuro); font-weight: 700; }
-
-/* Gráfico */
-.barra-grafico {
-  height: 2rem;
-  border-radius: 1rem;
-  background: #e3e8f0;
+.form-control {
+  border: 2px solid #1b1f3b;
 }
 
-.barra-grafico .progress-bar {
-  font-weight: 700;
+/* Barra de arriba */
+.navbar {
+  background-color: #1b1f3b;
+  border-bottom: 4px solid #ffcb05;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 28px) 100%, 0 100%);
 }
 
-.barra-deposito { background: #1f9d55; }
-.barra-retiro { background: var(--rojo); }
-.barra-servicio { background: var(--amarillo); color: var(--tinta); }
+.navbar-dark .navbar-nav .active > .nav-link {
+  color: #ffcb05;
+}
 
-.pie {
-  color: #6b7686;
-  font-size: 0.85rem;
+/* Historial y gráfico */
+.table .thead-dark th {
+  background-color: #1b1f3b;
+  color: #ffcb05;
+  border-color: #1b1f3b;
+}
+
+.progress {
+  height: 28px;
+  background-color: #d5d9e8;
+}
+
+.progress-bar {
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
 }
