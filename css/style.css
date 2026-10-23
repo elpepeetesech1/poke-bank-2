@@ -1,5 +1,4 @@
-/* Pokémon Bank — polished stylesheet (drop-in replacement for style.css) */
-
+/* idk how this works but dont touch */
 :root {
   --navy: #1b1f3b;
   --yellow: #ffcb05;
@@ -13,7 +12,6 @@
   --ease: 0.15s ease-in-out;
 }
 
-/* Square corners everywhere except SweetAlert */
 *:not([class*="swal2"]) {
   border-radius: 0 !important;
 }
@@ -30,7 +28,129 @@ h1,
   letter-spacing: 1px;
 }
 
-/* Login */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  background: var(--yellow);
+  color: var(--navy);
+  padding: 8px 16px;
+  font-weight: bold;
+  z-index: 1030;
+}
+
+.skip-link:focus {
+  left: 8px;
+  top: 8px;
+}
+
+.navbar {
+  background-color: var(--navy);
+  border-bottom: 4px solid var(--yellow);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 28px) 100%, 0 100%);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  transition: color var(--ease);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .active > .nav-link {
+  color: var(--yellow);
+}
+
+.card,
+.alert {
+  border: 0;
+  box-shadow: 0 6px 18px rgba(27, 31, 59, 0.12);
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
+}
+
+.card-header {
+  background-color: var(--navy);
+  color: var(--yellow);
+  border: 0;
+  font-weight: bold;
+}
+
+.alert {
+  background-color: var(--yellow);
+  color: var(--navy);
+}
+
+/* fixed this */
+.btn {
+  border: 0;
+  padding-left: 28px;
+  padding-right: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  clip-path: polygon(var(--cut-sm) 0, 100% 0, calc(100% - var(--cut-sm)) 100%, 0 100%);
+  transition: filter var(--ease), transform var(--ease);
+}
+
+.btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn:focus,
+.btn:focus-visible {
+  outline: 0;
+  box-shadow: inset 0 0 0 3px var(--yellow);
+}
+
+.btn:disabled,
+.btn.disabled {
+  cursor: not-allowed;
+}
+
+.form-control {
+  border: 2px solid var(--navy);
+  transition: border-color var(--ease), box-shadow var(--ease);
+}
+
+.form-control:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px var(--yellow);
+}
+
+.form-control.is-invalid {
+  border-color: var(--red);
+}
+
+.table .thead-dark th {
+  background-color: var(--navy);
+  color: var(--yellow);
+  border-color: var(--navy);
+  white-space: nowrap;
+}
+
+.table-hover tbody tr {
+  transition: background-color var(--ease);
+}
+
+.table td:last-child,
+.table th:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.progress {
+  height: 28px;
+  background-color: var(--track);
+}
+
+.progress-bar {
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  transition: width 0.6s ease;
+}
+
 .pantalla-login {
   background: linear-gradient(135deg, var(--navy) 55%, var(--yellow) 55%, var(--yellow) 58%, var(--red) 58%);
   background-attachment: fixed;
@@ -54,100 +174,10 @@ h1,
   opacity: 0.4;
 }
 
-/* Diagonal cuts */
-.card,
-.alert {
-  border: 0;
-  box-shadow: 0 6px 18px rgba(27, 31, 59, 0.12);
-  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
-}
-
-.card-header {
-  background-color: var(--navy);
-  color: var(--yellow);
-  border: 0;
-  font-weight: bold;
-}
-
-.alert {
-  background-color: var(--yellow);
+.saldo {
   color: var(--navy);
-}
-
-/* Buttons */
-.btn {
-  border: 0;
-  padding-left: 28px;
-  padding-right: 28px;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  clip-path: polygon(var(--cut-sm) 0, 100% 0, calc(100% - var(--cut-sm)) 100%, 0 100%);
-  transition: filter var(--ease), transform var(--ease);
-}
-
-.btn:hover:not(:disabled) {
-  filter: brightness(1.1);
-}
-
-.btn:active:not(:disabled) {
-  transform: translateY(1px);
-}
-
-/* clip-path would hide Bootstrap's focus ring, so use an inset one */
-.btn:focus,
-.btn:focus-visible {
-  outline: 0;
-  box-shadow: inset 0 0 0 3px var(--yellow);
-}
-
-.btn:disabled,
-.btn.disabled {
-  cursor: not-allowed;
-}
-
-/* Forms */
-.form-control {
-  border: 2px solid var(--navy);
-  transition: border-color var(--ease), box-shadow var(--ease);
-}
-
-.form-control:focus {
-  border-color: var(--navy);
-  box-shadow: 0 0 0 3px var(--yellow);
-}
-
-.form-control.is-invalid {
-  border-color: var(--red);
-}
-
-/* Top bar */
-.navbar {
-  background-color: var(--navy);
-  border-bottom: 4px solid var(--yellow);
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 28px) 100%, 0 100%);
-}
-
-.navbar-dark .navbar-nav .nav-link {
-  transition: color var(--ease);
-}
-
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link:focus,
-.navbar-dark .navbar-nav .active > .nav-link {
-  color: var(--yellow);
-}
-
-/* History and chart */
-.table .thead-dark th {
-  background-color: var(--navy);
-  color: var(--yellow);
-  border-color: var(--navy);
-  white-space: nowrap;
-}
-
-.table-hover tbody tr {
-  transition: background-color var(--ease);
+  font-variant-numeric: tabular-nums;
 }
 
 .contenedor-grafico {
@@ -157,46 +187,7 @@ h1,
   margin: 0 auto;
 }
 
-.progress {
-  height: 28px;
-  background-color: var(--track);
-}
-
-.progress-bar {
-  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
-  transition: width 0.6s ease;
-}
-
-/* Balance readout and accessibility helpers */
-.saldo {
-  color: var(--navy);
-  font-weight: bold;
-  font-variant-numeric: tabular-nums;
-}
-
-.table td:last-child,
-.table th:last-child {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  background: var(--yellow);
-  color: var(--navy);
-  padding: 8px 16px;
-  font-weight: bold;
-  z-index: 1030;
-}
-
-.skip-link:focus {
-  left: 8px;
-  top: 8px;
-}
-
-/* Small screens: smaller cuts so text isn't clipped */
+/* works on my machine */
 @media (max-width: 575.98px) {
   :root {
     --cut-lg: 28px;
