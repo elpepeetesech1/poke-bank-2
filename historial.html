@@ -4,62 +4,72 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pokémon Bank: historial de depósitos, retiros y pagos de servicios.">
+  <meta name="theme-color" content="#1b1f3b">
   <title>Pokémon Bank - Historial</title>
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.polished.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand navbar-dark">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <nav class="navbar navbar-expand navbar-dark" aria-label="Navegación principal">
     <a class="navbar-brand" href="acciones.html">Pokémon Bank</a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item"><a class="nav-link" href="acciones.html">Acciones</a></li>
-      <li class="nav-item active"><a class="nav-link" href="historial.html">Historial</a></li>
+      <li class="nav-item active"><a class="nav-link" href="historial.html" aria-current="page">Historial</a></li>
       <li class="nav-item"><a class="nav-link" href="grafico.html">Gráfico</a></li>
       <li class="nav-item"><a class="nav-link" href="index.html" id="btn-salir">Salir</a></li>
     </ul>
   </nav>
 
-  <main class="container my-4">
-    <h1 class="h3">Historial de transacciones</h1>
+  <main class="container my-4" id="contenido">
+    <h1 class="h3 mb-3">Historial de transacciones</h1>
 
     <div class="table-responsive">
-      <table class="table table-bordered bg-white" id="tabla-historial">
+      <table class="table table-bordered table-hover bg-white" id="tabla-historial">
+        <caption class="sr-only">Últimas transacciones de la cuenta, de la más reciente a la más antigua</caption>
         <thead class="thead-dark">
           <tr>
-            <th>Fecha</th>
-            <th>Tipo</th>
-            <th>Monto</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Monto</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>26/04/2026</td>
+            <td><time datetime="2026-04-26">26/04/2026</time></td>
             <td>Pago de servicio (energía eléctrica)</td>
             <td class="text-danger">- $45.00</td>
           </tr>
           <tr>
-            <td>26/04/2026</td>
+            <td><time datetime="2026-04-26">26/04/2026</time></td>
             <td>Retiro</td>
             <td class="text-danger">- $100.00</td>
           </tr>
           <tr>
-            <td>25/04/2026</td>
+            <td><time datetime="2026-04-25">25/04/2026</time></td>
             <td>Pago de servicio (internet)</td>
             <td class="text-danger">- $60.00</td>
           </tr>
           <tr>
-            <td>25/04/2026</td>
+            <td><time datetime="2026-04-25">25/04/2026</time></td>
             <td>Depósito</td>
             <td class="text-success">+ $300.00</td>
           </tr>
           <tr>
-            <td>22/04/2026</td>
+            <td><time datetime="2026-04-22">22/04/2026</time></td>
             <td>Retiro</td>
             <td class="text-danger">- $200.00</td>
           </tr>
           <tr>
-            <td>20/04/2026</td>
+            <td><time datetime="2026-04-20">20/04/2026</time></td>
             <td>Depósito</td>
             <td class="text-success">+ $500.00</td>
           </tr>
