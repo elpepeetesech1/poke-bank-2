@@ -1,4 +1,4 @@
-/* idk how this works but dont touch */
+/* Pokémon Bank - estilos propios sobre Bootstrap 4 */
 :root {
   --navy: #1b1f3b;
   --yellow: #ffcb05;
@@ -69,7 +69,7 @@ h1,
   color: var(--navy);
 }
 
-/* fixed this */
+/* Botones */
 .btn {
   border: 0;
   font-weight: bold;
@@ -173,7 +173,7 @@ h1,
   margin: 0 auto;
 }
 
-/* works on my machine */
+/* Adaptación a pantallas pequeñas */
 @media (max-width: 575.98px) {
   .tarjeta-login {
     max-width: 100%;
