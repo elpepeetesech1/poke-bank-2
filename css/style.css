@@ -177,11 +177,62 @@ h1,
   font-variant-numeric: tabular-nums;
 }
 
+/* Tarjeta de saldo compacta */
+.tarjeta-saldo .card-header {
+  padding: 0.4rem 1rem;
+}
+
+.tarjeta-saldo .card-body {
+  padding: 0.5rem 1rem;
+}
+
+.tarjeta-saldo .saldo {
+  margin-bottom: 0;
+}
+
 .contenedor-grafico {
   position: relative;
   width: 100%;
   max-width: 350px;
   margin: 0 auto;
+}
+
+/* Un poco de magia */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+main {
+  animation: aparecer 0.4s ease-out;
+}
+
+.card {
+  border-radius: 12px;
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(27, 31, 59, 0.2);
+}
+
+.tarjeta-login:hover {
+  transform: none;
+}
+
+.alert {
+  border-radius: 12px;
+}
+
+.btn {
+  border-radius: 999px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(255, 203, 5, 0.2);
 }
 
 /* Adaptación a pantallas pequeñas */
@@ -196,5 +247,6 @@ h1,
   *::before,
   *::after {
     transition: none !important;
+    animation: none !important;
   }
 }
