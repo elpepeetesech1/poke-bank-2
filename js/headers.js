@@ -6,3 +6,10 @@ const DEFAULT_VALUES = {
   saldo: 500.00,
   movimientos: []
 };
+
+// no hay enums en javascript asi que esto funciona creo nose talvez quiza quien sabe :v
+const TRANSACCION = Object.freeze({
+  DEPOSITO: 'DEPOSITO',
+  RETIRO: 'RETIRO',
+  PAGO: 'PAGO'
+});

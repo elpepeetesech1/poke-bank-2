@@ -109,39 +109,10 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    const moneda = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
-    const colorConfirmar = "#1b1f3b";
 
-    function confirmar(titulo, texto) {
-      Swal.fire({ title: titulo, text: texto, icon: "success", confirmButtonColor: colorConfirmar });
-    }
-
-    document.getElementById("form-deposito").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const monto = Number(document.getElementById("monto-deposito").value);
-      confirmar("Depósito realizado", "Se depositaron " + moneda.format(monto));
-      e.target.reset();
-    });
-
-    document.getElementById("form-retiro").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const monto = Number(document.getElementById("monto-retiro").value);
-      confirmar("Transacción realizada", "Retiraste " + moneda.format(monto));
-      e.target.reset();
-    });
-
-    document.getElementById("form-servicios").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const lista = document.getElementById("servicio");
-      const servicio = lista.options[lista.selectedIndex].text;
-      const monto = Number(document.getElementById("monto-servicio").value);
-      confirmar("Pago realizado", "Pagaste " + moneda.format(monto) + " de " + servicio);
-      e.target.reset();
-    });
-  </script>
-
+  <script src="js/headers.js"></script>
   <script src="js/local_storage.js"></script>
+  <script src="js/acciones.js"></script>
 </body>
 
 </html>

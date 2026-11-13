@@ -129,6 +129,17 @@ h1,
   white-space: nowrap;
 }
 
+/* Montos del historial: verde para lo que entra, rojo para lo que sale */
+.table td.ingreso {
+  color: #1b873f;
+  font-weight: bold;
+}
+
+.table td.egreso {
+  color: #c62828;
+  font-weight: bold;
+}
+
 .progress {
   height: 28px;
   background-color: var(--track);
