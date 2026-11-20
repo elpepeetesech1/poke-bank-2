@@ -41,10 +41,17 @@ function registerTransaction(type, amount, description)
   user.saldo += (type == TRANSACCION.DEPOSITO ? amount : -amount);
   saveUser();
   updateFields();
+
+  // Contrato con B: le entrega la transacción registrada (si su función ya existe)
+  if (typeof descargarComprobante === 'function') descargarComprobante(user.transactions[user.transactions.length - 1]);
   return true;
 }
 
-const updateFields = () =>  document.getElementById("saldo-consulta").innerText = `$${user.saldo.toFixed(2)} USD`;
+const updateFields = () => {
+  document.getElementById("nombre-titular").innerText = user.nombre;
+  document.getElementById("numero-cuenta").innerText = user.cuenta;
+  document.getElementById("saldo-consulta").innerText = `$${user.saldo.toFixed(2)} USD`;
+};
 
 document.getElementById("btn-depositar").addEventListener("click", (e) => {
   e.preventDefault();
