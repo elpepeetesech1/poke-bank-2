@@ -41,9 +41,6 @@ function registerTransaction(type, amount, description)
   user.saldo += (type == TRANSACCION.DEPOSITO ? amount : -amount);
   saveUser();
   updateFields();
-
-  // Contrato con B: le entrega la transacción registrada (si su función ya existe)
-  if (typeof descargarComprobante === 'function') descargarComprobante(user.transactions[user.transactions.length - 1]);
   return true;
 }
 
@@ -59,7 +56,7 @@ document.getElementById("btn-depositar").addEventListener("click", (e) => {
   if (amount === null) return;
 
   if (registerTransaction(TRANSACCION.DEPOSITO, amount, "Deposito")) {
-    mostrarAlerta('success', 'Depósito realizado', 'Depositaste ' + moneda.format(amount) + '. Saldo: ' + moneda.format(user.saldo));
+    mostrarExito('Depósito realizado', 'Depositaste ' + moneda.format(amount) + '. Saldo: ' + moneda.format(user.saldo));
   }
 })
 
@@ -81,7 +78,7 @@ document.getElementById("btn-pagar").addEventListener("click", (e) => {
 
   const servicio = lista.options[lista.selectedIndex].text;
   if (registerTransaction(TRANSACCION.PAGO, amount, servicio)) {
-    mostrarAlerta('success', 'Pago realizado', 'Pagaste ' + moneda.format(amount) + ' de ' + servicio + '. Saldo: ' + moneda.format(user.saldo));
+    mostrarExito('Pago realizado', 'Pagaste ' + moneda.format(amount) + ' de ' + servicio + '. Saldo: ' + moneda.format(user.saldo));
   }
 })
 
@@ -91,7 +88,7 @@ document.getElementById("btn-retirar").addEventListener("click", (e) => {
   if (amount === null) return;
 
   if (registerTransaction(TRANSACCION.RETIRO, amount, "Retiro")) {
-    mostrarAlerta('success', 'Retiro realizado', 'Retiraste ' + moneda.format(amount) + '. Saldo: ' + moneda.format(user.saldo));
+    mostrarExito('Retiro realizado', 'Retiraste ' + moneda.format(amount) + '. Saldo: ' + moneda.format(user.saldo));
   }
 })
 
