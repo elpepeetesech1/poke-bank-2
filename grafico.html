@@ -32,42 +32,22 @@
   <main class="container my-4" id="contenido">
     <h1 class="h3 mb-3">Gráfico de transacciones</h1>
 
+    <p id="sin-datos" class="alert d-none" role="status">Aún no hay transacciones para graficar.</p>
+
     <div id="grafico">
       <div class="contenedor-grafico">
         <canvas id="grafica" role="img"
-                aria-label="Gráfico de dona: depósitos $800, retiros $300, servicios $105"></canvas>
+                aria-label="Gráfico de dona con el número de transacciones por tipo"></canvas>
       </div>
     </div>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
-  <script>
-    new Chart(document.getElementById("grafica"), {
-      type: "doughnut",
-      data: {
-        labels: ["Depósitos", "Retiros", "Servicios"],
-        datasets: [{
-          data: [800, 300, 105],
-          backgroundColor: ["#1b1f3b", "#e63946", "#ffcb05"],
-          borderColor: "#eceef5",
-          borderWidth: 3
-        }]
-      },
-      options: {
-        plugins: {
-          legend: { position: "bottom" },
-          tooltip: {
-            callbacks: {
-              label: (ctx) => " " + ctx.label + ": $" + ctx.parsed.toLocaleString("es-MX")
-            }
-          }
-        }
-      }
-    });
-  </script>
 
   <script src="js/headers.js"></script>
   <script src="js/local_storage.js"></script>
+  <script src="js/session.js"></script>
+  <script src="js/grafico.js"></script>
 </body>
 
 </html>
